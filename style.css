@@ -1,0 +1,140 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.game-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-info{
+    background-color: yellow;
+    width: 20%;
+    height: 100vh;
+}
+.game-area{
+    background-color: limegreen;
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.bot{
+    margin: 2rem 0;
+    width: 14rem;
+    height: 14rem;
+    background-color: antiquewhite;
+    border: 2px solid aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.bot-objects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user{
+    margin-bottom: 10rem;
+    width: 14rem;
+    height: 14rem;
+    background-color: antiquewhite;
+    border: 2px solid aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.user-options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    width: 44%;
+    height: 17%;
+}
+.user-objects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width:33%;
+    height: 8rem;
+    background-color: aqua;
+    border: 1px solid black;
+    z-index: 2;
+}
+.user-selection img{
+    max-width: 70%;
+    max-height: 80%;
+}
+.score-area{
+    background-color: lightblue;
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.score{
+    width: 70%;
+    height: 20%;
+    color: rgb(0, 112, 210);
+    background-color: blanchedalmond;
+    border: 2px solid black;
+}
+button{
+    display: none;
+    font-size: large;
+    width: 70%;
+    height: 10%;
+    margin: 1rem;
+    color: rgb(67, 68, 68);
+    background-color: thistle;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+button:hover{
+    box-shadow: 0px 0px 10px 8px rgb(0, 136, 255);
+}
+#select-prompt{
+    display: none;
+}
+/* #user-move{
+    
+    background-color: blueviolet;
+    transition:all 1s ease;
+} */
+#user-move-img{
+    width: 0;
+    height: 0;
+    border: 2px solid black;
+    transition: all 0.5s ease-in-out;
+    z-index: 3;
+}
+/* #bot-move
+    width: 0;
+    background-color: rgb(137, 43, 226);
+    transition: all 1s ease;
+} */
+#bot-move-img{
+    width: 0; 
+    height: 0;
+    border: 2px solid black;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(180deg);
+    color: red;
+    z-index: 3;
+}
