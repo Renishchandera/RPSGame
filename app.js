@@ -4,6 +4,7 @@ const endGame = document.getElementById('end-game');
 const restartGame = document.getElementById('restart-game');
 let userMoveImg = document.getElementById('user-move-img');
 let botMoveImg = document.getElementById('bot-move-img');
+let result = document.getElementById('result');
 startGame.style.display = 'initial';
 endGame.style.display = 'none';
 restartGame.style.display = 'none';
@@ -49,7 +50,7 @@ function gameStart() {
             for (let i = 0; i < 3; i++) {
                 userOptionsArray[i].style.display = 'none';
             }
-     
+         
         })
     }
 
@@ -61,11 +62,11 @@ function gameStart() {
 
 function gameEnd() {
     if(+(userScore.innerText) > +(botScore.innerText)){
-        console.log(`You Won !! your score : ${userScore.innerText}, bot score : ${botScore.innerText}`);
+        result.innerText = `You Won !!\nyour score :${userScore.innerText},\nbot score : ${botScore.innerText}`;
     }else if(+(userScore.innerText) < +(botScore.innerText)){
-        console.log(`You Lost! Better luck next time!! your score : ${userScore.innerText}, bot score : ${botScore.innerText}`);
+        result.innerText = `You Lost! Better luck next time!! \nyour score : ${userScore.innerText}, \nbot score : ${botScore.innerText}`;
     }else{
-        console.log(`Tied !! your score : ${userScore.innerText}, bot score : ${botScore.innerText}`);
+        result.innerText = `Tied !! \nyour score : ${userScore.innerText},\nbot score : ${botScore.innerText}`;
     }
     startGame.style.display = 'none';
     endGame.style.display = 'none';
@@ -86,7 +87,7 @@ function gameRestart() {
     userScore.innerText = 0;
     botScore.innerText = 0;
     for (let i = 0; i < 3; i++) {
-        userOptionsArray[i].style.display = 'initial';
+        userOptionsArray[i].style.display = 'flex';
     }
     endGame.style.display = 'initial';
     restartGame.style.display = 'none';
@@ -97,7 +98,8 @@ function gameRestart() {
     botMoveImg.style.width = '0';
     userMoveImg.style.height = '0';
     botMoveImg.style.height = '0';
-    console.log("restarted game");
+    confirm("restarted game");
+    result.innerText = "Select Any Option";
 }
 function userMove(index) {
     userMoveImg.src = `images/${rpsArray[index]}.png`;
@@ -119,27 +121,27 @@ function botMove(index) {
 
 function compare(index, botIndex) {
     if (index == botIndex) {
-        console.log("Tied !! try Again !!");
+       result.innerText = "Tied !! Try Again!";
     } else if (rpsArray[index] == "rock" && rpsArray[botIndex] == "paper") {
         winner = "bot";
-        console.log("You Loose !! Bot Wins !! Better Luck Next Time");
+        result.innerText = "You Loose !! Bot Wins !! Better Luck Next Time";
     } else if (rpsArray[index] == "rock" && rpsArray[botIndex] == "scissor") {
         winner = "user";
-        console.log("Yehh ! You Won !!!");
+        result.innerText = "Yehh ! You Won !!!";
     } else if (rpsArray[index] == "paper" && rpsArray[botIndex] == "rock") {
         winner = "user";
-        console.log("Yehh ! You Won !!!");
+        result.innerText = "Yehh ! You Won !!!";
     } else if (rpsArray[index] == "paper" && rpsArray[botIndex] == "scissor") {
         winner = "bot";
-        console.log("You Loose !! Bot Wins !! Better Luck Next Time");
+        result.innerText = "You Loose !! Bot Wins !! Better Luck Next Time";
     } else if (rpsArray[index] == "scissor" && rpsArray[botIndex] == "rock") {
         winner = "bot";
-        console.log("You Loose !! Bot Wins !! Better Luck Next Time");
+        result.innerText = "You Loose !! Bot Wins !! Better Luck Next Time";
     } else if (rpsArray[index] == "scissor" && rpsArray[botIndex] == "paper") {
         winner = "user";
-        console.log("Yehh ! You Won !!!");
+        result.innerText = "Yehh ! You Won !!!";
     } else {
-        console.log("Sorry! there was an issue! please try again");
+        result.innerText = "Sorry! there was an issue! please try again";
     }
 
 
@@ -159,4 +161,5 @@ function displayOptions(){
     botMoveImg.style.width = '0';
     userMoveImg.style.height = '0';
     botMoveImg.style.height = '0';
+    result.innerText = "";
 }
