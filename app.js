@@ -17,10 +17,13 @@ let userScore = document.getElementById('user-score');
 let botScore = document.getElementById('bot-score');
 const userOptions = document.getElementsByClassName("user-selection");
 let userOptionsArray = Array.from(userOptions);
+let animationBox = document.getElementById('animation-box');
+let gif = animationBox.appendChild(document.createElement('img'));
+gif.id = "animation-gif";
 // let userMoveCard = document.getElementById('user-move');
 // let botMoveCard = document.getElementById('bot-move');
 const rpsArray = ["rock", "paper", "scissor"];
-let selectPrompt = document.getElementById('select-prompt');
+// let selectPrompt = document.getElementById('select-prompt');
 
 function gameStart() {
     let startAudio = document.getElementById('game-start-audio');
@@ -32,7 +35,7 @@ function gameStart() {
 
     // startAnimation();
 
-    selectPrompt.style.display = 'initial';
+    // selectPrompt.style.display = 'initial';
 
     // userOptionsArray.forEach(element => {
     //     element.addEventListener('click',playerMoves);
@@ -45,7 +48,7 @@ function gameStart() {
             compare(userOptionsArray.indexOf(userOptionsArray[i]), botIndex);
             if(nextMove.style.display != 'initial'){
                 nextMove.style.display = 'initial'
-                selectPrompt.style.display = 'none';
+                // selectPrompt.style.display = 'none';
             }
             for (let i = 0; i < 3; i++) {
                 userOptionsArray[i].style.display = 'none';
@@ -72,7 +75,9 @@ function gameEnd() {
     endGame.style.display = 'none';
     restartGame.style.display = 'initial';
     nextMove.style.display = 'none';
-    selectPrompt.style.display = 'none';
+    gif.src = "";
+    gif.style.left = '-500px';
+    // selectPrompt.style.display = 'none';
     for (let i = 0; i < 3; i++) {
         userOptionsArray[i].style.display = 'none';
     }
@@ -91,15 +96,15 @@ function gameRestart() {
     }
     endGame.style.display = 'initial';
     restartGame.style.display = 'none';
-    selectPrompt.style.display = 'initial';
+    // selectPrompt.style.display = 'initial';
     // userMoveCard.style.width = '0';
     // botMoveCard.style.width = '0';
     userMoveImg.style.width = '0';
     botMoveImg.style.width = '0';
     userMoveImg.style.height = '0';
     botMoveImg.style.height = '0';
-    confirm("restarted game");
-    result.innerText = "Select Any Option";
+    alert("Game Restarted !!");
+    result.innerText = "Select Your Move";
 }
 function userMove(index) {
     userMoveImg.src = `images/${rpsArray[index]}.png`;
@@ -146,9 +151,12 @@ function compare(index, botIndex) {
 
 
     if (winner == "user") {
+        startWinAnimation(winner);
         (userScore.innerText)++;
     } else if (winner == "bot") {
+        startLoseAnimation();
         (botScore.innerText)++;
+
     }
 }
 
@@ -156,10 +164,22 @@ function displayOptions(){
     for (let i = 0; i < 3; i++) {
         userOptionsArray[i].style.display = 'flex';
     }
-    selectPrompt.style.display = 'initial';
+    // selectPrompt.style.display = 'initial';
     userMoveImg.style.width = '0';
     botMoveImg.style.width = '0';
     userMoveImg.style.height = '0';
     botMoveImg.style.height = '0';
     result.innerText = "";
+    gif.src = "";
+    gif.style.left = '-500px';
+}
+
+
+function startWinAnimation(winner){
+    gif.src = "video/win.gif"
+    gif.style.left = '0px';
+}
+function startLoseAnimation(){
+    gif.src = "video/smalllose.gif";
+    gif.style.left = '0px';
 }

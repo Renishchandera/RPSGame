@@ -1,48 +1,75 @@
+:root{
+   --pink: #ff34ff;
+   --redPink: rgb(229, 0, 152);
+   --darkPink:#9d339b;
+}
 body{
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .game-container{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.game-info{
-    background-color: yellow;
-    width: 20%;
-    height: 100vh;
+.game-title{
+    background-color:var(--pink) ;
+    text-align: center;
+    width: 100%;
+    height: 7vh;
+    padding: 1rem 0;
 }
-.game-area{
+.game-info{
+    background-color: var(--darkPink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+}
+#result{
+    color:rgb(14, 14, 14);
+    font-size: larger;
+}
+.main-game-area{
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    align-items: center;
+    width: 100%;
+    height: 75vh;
+    overflow: auto;
+}
+.play-area{
     background-color: limegreen;
-    width: 60%;
-    height: 100vh;
+    height: 75vh;
+    width: 50vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: baseline;
+
 }
 .bot{
     margin: 2rem 0;
-    width: 14rem;
-    height: 14rem;
+    width: 10rem;
+    height: 10rem;
     background-color: antiquewhite;
     border: 2px solid aqua;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.bot-objects{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .user{
-    margin-bottom: 10rem;
-    width: 14rem;
-    height: 14rem;
+    margin: 2rem 0;
+    width: 10rem;
+    height: 10rem;
     background-color: antiquewhite;
     border: 2px solid aqua;
     display: flex;
@@ -52,15 +79,6 @@ body{
 }
 .user-options{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    bottom: 10px;
-    width: 44%;
-    height: 17%;
-}
-.user-objects{
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -69,39 +87,57 @@ body{
     justify-content: center;
     align-items: center;
     min-width:33%;
-    height: 8rem;
-    background-color: aqua;
+    height: 9rem;
+    background-color: rgb(141, 169, 169);
     border: 1px solid black;
     z-index: 2;
+    transition: all 0.5s ease;
+}
+.user-selection:hover{
+    background-color: aquamarine;
+    border: 1px solid black;
+    box-shadow: 0px 0px 8px 6px var(--darkPink);
 }
 .user-selection img{
+    aspect-ratio: 3/2;
+    object-fit: contain;
     max-width: 70%;
     max-height: 80%;
 }
 .score-area{
-    background-color: lightblue;
-    width: 20%;
-    height: 100vh;
+    background-color: rgb(53, 198, 246);
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0px;
+}
+.score{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    background-color: rgb(196, 125, 19);
+    border: 2px solid black;
+}
+.game-btns{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.score{
-    width: 70%;
-    height: 20%;
-    text-align: center;
-    padding: 1rem;
-    font-size: 1rem;
-    color: rgb(0, 112, 210);
-    background-color: blanchedalmond;
-    border: 2px solid black;
+    width: 25%;
+    height: 100%;
+    background-color: var(--redPink);
 }
 button{
     display: none;
     font-size: large;
-    width: 70%;
-    height: 10%;
+    width: 10rem;
+    height: 4rem;
     margin: 1rem;
     color: rgb(67, 68, 68);
     background-color: thistle;
@@ -112,39 +148,36 @@ button{
 button:hover{
     box-shadow: 0px 0px 10px 8px rgb(0, 136, 255);
 }
-#select-prompt{
-    display: none;
-}
-/* #user-move{
-    
-    background-color: blueviolet;
-    transition:all 1s ease;
-} */
 #user-move-img{
+    aspect-ratio: 3/2;
+    object-fit: contain;
     width: 0;
     height: 0;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     transition: all 0.5s ease-in-out;
     z-index: 3;
 }
-/* #bot-move
-    width: 0;
-    background-color: rgb(137, 43, 226);
-    transition: all 1s ease;
-} */
 #bot-move-img{
+    aspect-ratio: 3/2;
+    object-fit: contain;
     width: 0; 
     height: 0;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     transition: all 0.5s ease-in-out;
     transform: rotate(180deg);
     color: red;
     z-index: 3;
 }
-#result{
-    color:rgb(14, 14, 14);
-    font-size: larger;
+#animation-gif{
+    width: 10rem;
+    height: 10rem;
+    border: none;
+    position: relative  ;
+    left: -500px;
+    transition: all 0.5s ease;
 }
+
+
 @media screen and (max-width: 500px){
     .game-info{
       font-size:0.6rem;
@@ -158,17 +191,14 @@ button:hover{
         height: 9rem;
     }
     .user{
-        margin-bottom: 20rem;
         width: 9rem;
         height: 9rem;
     }
     button{
-        width: 80%;
-        height: 5%;
+       width: 5rem;
+       height: 4rem;
         margin: 1rem;
         font-size: 0.9rem;
-        position: relative;
-        bottom: 5rem;
     }
     .score{
         width: 40%;

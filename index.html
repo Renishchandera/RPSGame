@@ -11,45 +11,64 @@
 <body>
     <main>
         <div class="game-container">
-            <div class="game-info">
-                <h1>Rock, <br> Paper and <br> Scissor </h1>
+            <div class="game-title">
+                <h1>Rock,Paper and Scissor </h1>
                 <br>
-                <h3 id="select-prompt">Select Any Option !!</h3>
             </div>
-            <div class="game-area">
-                <div class="bot">
-                    <div class="bot-objects">
-                        <!-- <div class="rock" id="bot-move">Rock</div> -->
-                        <img src="images/paper.png" alt="botmoveimage" id="bot-move-img">
+            <div class="main-game-area">
+                <div class="game-info">
+                    <div id="animation-box">
+                        
                     </div>
+                    <div class="result-box" id="result">Start Game</div>
                 </div>
-                <div class="game-result" id="result"></div>
-                <div class="user">
-                    <div class="user-objects">
-                        <!-- <div class="rock" id="user-move">Rock</div> -->
-                        <img src="images/paper.png" alt="botmoveimage" id="user-move-img">
-                       
+                <div class="play-area">
+                    <div class="bot">
+                        <div class="bot-objects">
+                            <!-- <div class="rock" id="bot-move">Rock</div> -->
+                            <img src="images/paper.png" alt="botmoveimage" id="bot-move-img">
+                        </div>
+                    </div>
+
+                    <div class="user">
+                        <div class="user-objects">
+                            <!-- <div class="rock" id="user-move">Rock</div> -->
+                            <img src="images/paper.png" alt="botmoveimage" id="user-move-img">
+
+                        </div>
                     </div>
                     <div class="user-options">
-                        <div class="user-selection" id="user-selection-rock"><img src="images/rock.png" alt="" id="rock-img"></div>
-                        <div class="user-selection" id="user-selection-paper"><img src="images/paper.png" alt="" id="paper-img"></div>
-                        <div class="user-selection" id="user-selection-cissor"><img src="images/scissor.png" alt="" id="scissor-img"></div>
+                        <div class="user-selection" id="user-selection-rock"><img src="images/rock.png" alt=""
+                                id="rock-img"></div>
+                        <div class="user-selection" id="user-selection-paper"><img src="images/paper.png" alt=""
+                                id="paper-img"></div>
+                        <div class="user-selection" id="user-selection-cissor"><img src="images/scissor.png" alt=""
+                                id="scissor-img"></div>
                     </div>
+
+                </div>
+                <div class="game-btns">
+                    <button id="start-game">Start</button>
+                    <button id="next-move">Do Again</button>
+                    <button id="end-game">End Game</button>
+                    <button id="restart-game">Restart Game</button>
                 </div>
             </div>
-            <div class="score-area">
-                <label for="bot-score">Bot Score</label>
-                <div class="score" id="bot-score">0</div>
 
-                <br><br><br>
-                <label for="user-score">Your Score</label>
-                <div class="score" id="user-score">0</div>
-                <br><br><br><br><br><br><br><br>
-                <button id="start-game">Start</button>
-                <button id="next-move">Do Again</button>
-                <button id="end-game">End Game</button>
-                <button id="restart-game">Restart Game</button>
-                <audio src="audio/Music.wav"  loop  preload="auto" volume="0.9" id="game-start-audio"></audio>
+            <div class="score-area">
+                <br><br><br><br><br>
+                <div class="">
+                    <label for="user-score">Your Score</label>
+                    <div class="score" id="user-score">0</div>
+                </div>
+                <div class="">
+                    <label for="bot-score">Bot Score</label>
+                    <div class="score" id="bot-score">0</div>
+
+                </div>
+    
+                <br><br><br><br><br>
+                <audio src="audio/Music.wav" loop preload="auto" volume="0.9" id="game-start-audio"></audio>
             </div>
         </div>
     </main>
