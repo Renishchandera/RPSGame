@@ -26,8 +26,8 @@ const rpsArray = ["rock", "paper", "scissor"];
 // let selectPrompt = document.getElementById('select-prompt');
 
 function gameStart() {
-    let startAudio = document.getElementById('game-start-audio');
-    startAudio.play();
+    // let startAudio = document.getElementById('game-start-audio');
+    // startAudio.play();
   
     restartGame.style.display = 'none';
     startGame.style.display = 'none';
@@ -66,8 +66,10 @@ function gameStart() {
 function gameEnd() {
     if(+(userScore.innerText) > +(botScore.innerText)){
         result.innerText = `You Won !!\nyour score :${userScore.innerText},\nbot score : ${botScore.innerText}`;
+        startWinAnimation(winner);
     }else if(+(userScore.innerText) < +(botScore.innerText)){
         result.innerText = `You Lost! Better luck next time!! \nyour score : ${userScore.innerText}, \nbot score : ${botScore.innerText}`;
+        startLoseAnimation(winner);
     }else{
         result.innerText = `Tied !! \nyour score : ${userScore.innerText},\nbot score : ${botScore.innerText}`;
     }
@@ -75,19 +77,17 @@ function gameEnd() {
     endGame.style.display = 'none';
     restartGame.style.display = 'initial';
     nextMove.style.display = 'none';
-    gif.src = "";
-    gif.style.left = '-500px';
     // selectPrompt.style.display = 'none';
     for (let i = 0; i < 3; i++) {
         userOptionsArray[i].style.display = 'none';
     }
-    let startAudio = document.getElementById('game-start-audio');
-    startAudio.pause();
+    // let startAudio = document.getElementById('game-start-audio');
+    // startAudio.pause();
 }
 
 function gameRestart() {
-    let startAudio = document.getElementById('game-start-audio');
-    startAudio.play();
+    // let startAudio = document.getElementById('game-start-audio');
+    // startAudio.play();
 
     userScore.innerText = 0;
     botScore.innerText = 0;
@@ -105,6 +105,8 @@ function gameRestart() {
     botMoveImg.style.height = '0';
     alert("Game Restarted !!");
     result.innerText = "Select Your Move";
+    gif.src = "";
+    gif.style.left = '-500px';
 }
 function userMove(index) {
     userMoveImg.src = `images/${rpsArray[index]}.png`;
@@ -126,6 +128,7 @@ function botMove(index) {
 
 function compare(index, botIndex) {
     if (index == botIndex) {
+        winner = 'tie';
        result.innerText = "Tied !! Try Again!";
     } else if (rpsArray[index] == "rock" && rpsArray[botIndex] == "paper") {
         winner = "bot";
@@ -156,7 +159,8 @@ function compare(index, botIndex) {
     } else if (winner == "bot") {
         startLoseAnimation();
         (botScore.innerText)++;
-
+    }else{
+       // startTieAnimation();
     }
 }
 
