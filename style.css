@@ -53,7 +53,7 @@ body{
 }
 .play-area{
     background-color: var(--o2);
-    height: 80vh;
+    height: 100%;
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -187,14 +187,20 @@ button:hover{
 }
 
 
-@media screen and (max-width: 500px){
+@media screen and (min-width: 300px) and (max-width: 500px){
+    .game-title{
+        font-size: 0.9rem;
+        height: 5vh;
+        padding: 0 0 1rem 0;
+    }
+    .main-game-area{
+        height: 100vh;
+        overflow: hidden;
+    }
     .game-info{
       font-size:0.6rem;
     }
-    .user-options{
-        width: 95%;
-        height: 30%;
-    }
+    
     .bot{
         width: 9rem;
         height: 9rem;
@@ -202,6 +208,18 @@ button:hover{
     .user{
         width: 9rem;
         height: 9rem;
+    }
+    .user-options{
+        position: fixed;
+        bottom: 12rem;
+    }
+    .user-selection{
+        height: 6rem;
+        width: 6rem;
+    }
+    .user-selection img{
+        max-width: 90%;
+    max-height: 90%;
     }
     button{
        width: 5rem;
