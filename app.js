@@ -65,13 +65,13 @@ function gameStart() {
 
 function gameEnd() {
     if(+(userScore.innerText) > +(botScore.innerText)){
-        result.innerText = `You Won !!\nyour score :${userScore.innerText},\nbot score : ${botScore.innerText}`;
+        result.innerText = `You Won !!\n\nyour score \n ${userScore.innerText},\n\nbot score \n ${botScore.innerText}`;
         startWinAnimation(winner);
     }else if(+(userScore.innerText) < +(botScore.innerText)){
-        result.innerText = `You Lost! Better luck next time!! \nyour score : ${userScore.innerText}, \nbot score : ${botScore.innerText}`;
+        result.innerText = `You Lost! Better luck next time!! \n\nyour score \n ${userScore.innerText}, \n\nbot score \n ${botScore.innerText}`;
         startLoseAnimation(winner);
     }else{
-        result.innerText = `Tied !! \nyour score : ${userScore.innerText},\nbot score : ${botScore.innerText}`;
+        result.innerText = `Tied !! \n\nyour score \n ${userScore.innerText},\n\nbot score \n ${botScore.innerText}`;
     }
     startGame.style.display = 'none';
     endGame.style.display = 'none';
@@ -160,7 +160,7 @@ function compare(index, botIndex) {
         startLoseAnimation();
         (botScore.innerText)++;
     }else{
-       // startTieAnimation();
+    //    startTieAnimation();
     }
 }
 

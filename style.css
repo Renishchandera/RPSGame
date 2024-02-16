@@ -123,13 +123,13 @@ body{
     position: fixed;
     bottom: 0px;
 }
-.score{
+.score {
     text-align: center;
     padding: 0.5rem;
     font-size: 1.5rem;
-    color: rgb(0, 0, 0);
+    color: --o4;
     background-color: var(--o6);
-    border: 2px solid black;
+    border: 2px solid --o1;
 }
 .game-btns{
     display: flex;
@@ -181,20 +181,20 @@ button:hover{
     width: 10rem;
     height: 10rem;
     border: none;
-    position: relative  ;
+    position: relative ;
     left: -500px;
     transition: all 0.5s ease;
 }
 
 
-@media screen and (min-width: 300px) and (max-width: 500px){
+@media screen and (min-width: 300px) and (max-width: 600px) and (max-height:910px){
     .game-title{
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         height: 5vh;
-        padding: 0 0 1rem 0;
+        padding: 0 0 1rem 0;    
     }
     .main-game-area{
-        height: 100vh;
+        height: 85vh;
         overflow: hidden;
     }
     .game-info{
@@ -211,7 +211,7 @@ button:hover{
     }
     .user-options{
         position: fixed;
-        bottom: 12rem;
+        bottom: 7rem;
     }
     .user-selection{
         height: 6rem;
@@ -222,17 +222,26 @@ button:hover{
     max-height: 90%;
     }
     button{
-       width: 5rem;
-       height: 4rem;
+       width: 4rem;
+       height: 3rem;
+       padding: 0;
         margin: 1rem;
         font-size: 0.9rem;
+        position: relative;
+        bottom: -5rem;
+    }
+    #result{
+        font-size: 1.3rem;
+        padding: 0 0.5rem;
     }
     .score{
-        width: 40%;
-        height: 1%;
         text-align: center;
-        padding: 1rem;
         font-size: 1rem;
         border-radius: 50%;
+    }
+    #animation-gif{
+        width: 5rem;
+        height: 5rem;
+        border: none;
     }
 }
